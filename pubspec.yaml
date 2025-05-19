@@ -1,0 +1,19 @@
+name: dart_iconica_utilities
+description: Useful utilities for dart projects
+version: 0.0.1
+
+homepage: https://iconica.app
+
+publish_to: https://forgejo.internal.iconica.nl/api/packages/internal/pub
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  meta: ">=1.0.0 <2.0.0"
+
+dev_dependencies:
+  test: ">=1.15.0 <2.0.0"
+  flutter_iconica_analysis:
+    hosted: https://forgejo.internal.iconica.nl/api/packages/internal/pub
+    version: ^7.0.0
