@@ -7,5 +7,6 @@ library dart_iconica_utilities;
 
 export "src/biderectional_sorter/biderectional_sorter.dart";
 export "src/date_extension/date_extension.dart";
+export "src/select_map/select_map.dart";
 export "src/serialization/serialization.dart";
 export "src/traverse/traverse.dart";
