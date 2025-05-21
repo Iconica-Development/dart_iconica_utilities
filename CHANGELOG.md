@@ -1,3 +1,7 @@
+## 0.1.0
+
+- Add select and omit methods for Map<String, dynamic>
+
 ## 0.0.1
 
 - Add initial version containing:
