@@ -10,6 +10,7 @@ This package contains:
 - [Date Extension](#date-extension)
 - [Serialization](#serialization)
 - [Traversal](#traversal)
+- [Select and Omit Maps](#select-and-omit-maps)
 
 ## Installation
 
@@ -118,5 +119,94 @@ someMap.traverseThen(["a","b","c","d"],(int value)=>value * 1.2); // => 3.6 (Ide
 
 someMap.maybeTraverse<String>(["a","b","c","d"]); // => null
 someMap.maybeTraverseThen<String,double>(["a","b","c","f"],(value)=>double.tryParse('$value')); // => null
+
+```
+
+## Select and Omit Maps
+
+Functions for selecting and omiting (deep)maps
+
+### Select
+
+```dart
+
+// Select
+
+Map<String,dynamic> data = {
+  "user": {
+    "name": "Alice",
+    "address": {
+      "city": "Amsterdam",
+      "zip": "1234AB"
+    },
+    "roles": [
+      {"type": "admin", "active": true},
+      {"type": "user", "active": false},
+    ]
+  },
+  "meta": {"version": "1.0"}
+};
+
+data.select(["user.name", "user.address.city", "user.roles.type"]);
+
+//This results in:
+{
+  "user": {
+    "name": "Alice",
+    "address": {"city": "Amsterdam"},
+    "roles": [
+      {"type": "admin"},
+      {"type": "user"}
+    ]
+  }
+}
+
+```
+
+### Select
+
+```dart
+
+// Select
+
+Map<String,dynamic> data = {
+  "user": {
+    "name": "Alice",
+    "email": "alice@example.com",
+    "address": {
+      "city": "Amsterdam",
+      "zip": "1234AB",
+    },
+    "roles": [
+      {"type": "admin", "active": true},
+      {"type": "user", "active": false},
+    ]
+  },
+  "meta": {"version": "1.0", "env": "production"}
+};
+
+data.omit([
+  "user.email",
+  "user.address.zip",
+  "user.roles.active",
+  "meta.env"
+]);
+
+// This results in:
+{
+  "user": {
+    "name": "Alice",
+    "address": {
+      "city": "Amsterdam"
+    },
+    "roles": [
+      {"type": "admin"},
+      {"type": "user"}
+    ]
+  },
+  "meta": {
+    "version": "1.0"
+  }
+}
 
 ```
