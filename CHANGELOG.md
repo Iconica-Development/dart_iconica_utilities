@@ -1,6 +1,7 @@
 ## 0.0.2
 
 - Add select and omit methods for Map<String, dynamic>
+- Add ValueValidators
 
 ## 0.0.1
 
