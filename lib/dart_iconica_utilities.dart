@@ -10,3 +10,4 @@ export "src/date_extension/date_extension.dart";
 export "src/select_map/select_map.dart";
 export "src/serialization/serialization.dart";
 export "src/traverse/traverse.dart";
+export "src/value_validator/value_validator.dart";
