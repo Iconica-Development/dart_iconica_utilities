@@ -1,3 +1,7 @@
+## 0.0.3
+
+- Add generic Serializer model
+
 ## 0.0.2
 
 - Add select and omit methods for Map<String, dynamic>
