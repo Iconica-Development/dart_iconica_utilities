@@ -1,3 +1,9 @@
+## 0.0.4
+
+- Make serializer const
+- Add asOptional getter on ValueValidator
+- Add optional getter on Map<String,ValueValidator>
+
 ## 0.0.3
 
 - Add generic Serializer model
