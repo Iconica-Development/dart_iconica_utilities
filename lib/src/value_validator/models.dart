@@ -14,7 +14,7 @@ class ValueValidator {
   ValueValidator.map({
     this.optional = false,
     CustomValidator? validator,
-    Map<String, ValueValidator> validators = const {},
+    SerializedObjectValidator validators = const {},
   }) {
     jsonRepresentation = validators.asJson();
     this.validator = (value) {
@@ -215,8 +215,25 @@ class ValueValidator {
 
     return validator(value);
   }
+
+  ///
+  ValueValidator get asOptional => ValueValidator(
+        optional: true,
+        validator: validator,
+        jsonRepresentation: jsonRepresentation,
+      );
 }
 
 ///
 // ignore: avoid_annotating_with_dynamic
 typedef CustomValidator = dynamic Function(dynamic value);
+
+///
+typedef SerializedObjectValidator = Map<String, ValueValidator>;
+
+///
+extension OptionalObjectValidator on SerializedObjectValidator {
+  ///
+  SerializedObjectValidator get optional =>
+      map((key, value) => MapEntry(key, value.asOptional));
+}
