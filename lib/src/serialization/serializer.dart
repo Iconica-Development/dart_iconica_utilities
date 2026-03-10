@@ -4,7 +4,7 @@ import "package:dart_iconica_utilities/src/value_validator/value_validator.dart"
 ///
 class Serializer<T> {
   ///
-  Serializer({
+  const Serializer({
     required this.fromMap,
     required this.toMap,
     this.validators = const {},
