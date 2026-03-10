@@ -15,7 +15,7 @@ class Serializer<T> {
   ///
   factory Serializer.readOnly({
     required Map<String, dynamic> Function(T object) toMap,
-    required Map<String, ValueValidator> validators,
+    required SerializedObjectValidator validators,
     List<String> fieldPaths = const [],
     Map<String, dynamic>? data,
   }) =>
@@ -30,7 +30,7 @@ class Serializer<T> {
   ///
   factory Serializer.writeOnly({
     required T Function(Map<String, dynamic> map) fromMap,
-    required Map<String, ValueValidator> validators,
+    required SerializedObjectValidator validators,
     List<String> fieldPaths = const [],
     Map<String, dynamic>? data,
   }) =>
@@ -43,7 +43,7 @@ class Serializer<T> {
       );
 
   ///
-  final Map<String, ValueValidator> validators;
+  final SerializedObjectValidator validators;
 
   ///
   final T Function(Map<String, dynamic> map) fromMap;

@@ -2,7 +2,7 @@ import "package:dart_iconica_utilities/src/value_validator/exception.dart";
 import "package:dart_iconica_utilities/src/value_validator/models.dart";
 
 ///
-extension MapValidator on Map<String, ValueValidator> {
+extension MapValidator on SerializedObjectValidator {
   ///
   void validate(Map<String, dynamic> toValidate) {
     try {
@@ -31,7 +31,7 @@ extension MapValidator on Map<String, ValueValidator> {
 }
 
 ///
-extension ValidatorJsonRepresentation on Map<String, ValueValidator> {
+extension ValidatorJsonRepresentation on SerializedObjectValidator {
   ///
   Map<String, dynamic> asJson() => map(
         (key, value) => MapEntry(
